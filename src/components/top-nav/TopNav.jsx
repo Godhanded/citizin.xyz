@@ -1,6 +1,23 @@
 import "./top-nav.scss";
 import { Link } from "react-router-dom";
 import { DashboardIcon, Logo, NavDropDown} from "../../assets/icons/";
+import '@coinbase/onchainkit/styles.css';
+import {
+    ConnectWallet,
+    Wallet,
+    WalletDropdown,
+    WalletDropdownBasename, 
+    WalletDropdownFundLink, 
+    WalletDropdownLink, 
+    WalletDropdownDisconnect,
+  } from '@coinbase/onchainkit/wallet';
+  import {
+    Address,
+    Avatar,
+    Name,
+    Identity,
+    EthBalance, 
+  } from '@coinbase/onchainkit/identity';
 
 
 const TopNav = () => {
@@ -54,7 +71,33 @@ const TopNav = () => {
                     <hr />
 
                     <div>
-                        <span>
+                    <Wallet>
+  <ConnectWallet>
+    <Avatar sizes="1"/>
+    <Name />
+  </ConnectWallet>
+  <WalletDropdown>
+    <Identity 
+      className="px-4 pt-3 pb-2" 
+      hasCopyAddressOnClick
+      >
+      <Avatar />
+      <Name />
+      <Address />
+      <EthBalance />
+    </Identity>
+    <WalletDropdownBasename />
+    <WalletDropdownLink
+      icon="wallet"
+      href="https://keys.coinbase.com"
+      >
+      Wallet
+    </WalletDropdownLink>
+    <WalletDropdownFundLink />
+    <WalletDropdownDisconnect />
+  </WalletDropdown>
+</Wallet>
+                        {/* <span>
                             <img src="/profile_pic.jpg" alt="" />
                         </span>
 
@@ -65,7 +108,7 @@ const TopNav = () => {
 
                         <span>
                             <NavDropDown />
-                        </span>
+                        </span> */}
                     </div>
                 </div>
 

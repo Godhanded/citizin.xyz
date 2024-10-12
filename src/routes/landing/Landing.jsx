@@ -1,15 +1,31 @@
-import { useWeb3Modal } from "@web3modal/wagmi1/react";
+// import { useWeb3Modal } from "@web3modal/wagmi1/react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LandingArrow, LogoDark } from "../../assets/icons";
 import { Scroll } from "../../utils";
 import "./landing.scss";
-
+import '@coinbase/onchainkit/styles.css';
+import {
+    ConnectWallet,
+    Wallet,
+    WalletDropdown,
+    WalletDropdownBasename, 
+    WalletDropdownFundLink, 
+    WalletDropdownLink, 
+    WalletDropdownDisconnect,
+  } from '@coinbase/onchainkit/wallet';
+  import {
+    Address,
+    Avatar,
+    Name,
+    Identity,
+    EthBalance, 
+  } from '@coinbase/onchainkit/identity';
 import { truncateWalletAddress } from "../../lib/truncate-address";
 import { useAccount } from "wagmi";
 
 const Landing = () => {
-	const { open } = useWeb3Modal();
+	// const { open } = useWeb3Modal();
 	const { address, isConnected } = useAccount();
 
 	const links = [
@@ -68,13 +84,39 @@ const Landing = () => {
 				</nav>
 
 				<div className="cta">
-					<button onClick={() => open()}>
+					{/* <button >
 						<span>
 							{isConnected
 								? truncateWalletAddress(address)
 								: "connect"}
 						</span>
-					</button>
+					</button> */}
+					<Wallet >
+  <ConnectWallet>
+    <Avatar sizes="1"/>
+    <Name />
+  </ConnectWallet>
+  <WalletDropdown>
+    <Identity 
+      className="px-4 pt-3 pb-2" 
+      hasCopyAddressOnClick
+      >
+      <Avatar />
+      <Name />
+      <Address />
+      <EthBalance />
+    </Identity>
+    <WalletDropdownBasename />
+    <WalletDropdownLink
+      icon="wallet"
+      href="https://keys.coinbase.com"
+      >
+      Wallet
+    </WalletDropdownLink>
+    <WalletDropdownFundLink />
+    <WalletDropdownDisconnect />
+  </WalletDropdown>
+</Wallet>
 				</div>
 			</div>
 
