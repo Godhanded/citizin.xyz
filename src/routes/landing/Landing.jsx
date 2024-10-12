@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { LandingArrow, LogoDark } from "../../assets/icons";
 import { Scroll } from "../../utils";
 import "./landing.scss";
-import '@coinbase/onchainkit/styles.css';
+// import '@coinbase/onchainkit/styles.css';
 import {
     ConnectWallet,
     Wallet,

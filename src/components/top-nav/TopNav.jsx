@@ -1,7 +1,7 @@
 import "./top-nav.scss";
 import { Link } from "react-router-dom";
 import { DashboardIcon, Logo, NavDropDown} from "../../assets/icons/";
-import '@coinbase/onchainkit/styles.css';
+// import '@coinbase/onchainkit/styles.css';
 import {
     ConnectWallet,
     Wallet,

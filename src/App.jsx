@@ -6,6 +6,7 @@ import { WagmiProvider,createConfig,http } from "wagmi";
 import { base, baseSepolia } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; 
 import { coinbaseWallet, injected } from 'wagmi/connectors';
+import '@coinbase/onchainkit/styles.css';
 
 import Media from "react-media";
 
